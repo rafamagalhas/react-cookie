@@ -1,14 +1,12 @@
 import React from "react";
-import { useCookies } from "react-cookie";
+import Cookies from "universal-cookie";
 
 export default function App() {
-  const [cookies, setCookie] = useCookies(["user"]);
+  const cookies = new Cookies();
 
   function handleCookie() {
-    setCookie("user", "gowtham", {
-      path: "/"
-    });
-    console.log(cookies.user);
+    cookies.set("user", "rafa", { path: "/" });
+    console.log(cookies.get("user"));
   }
   return (
     <div className="App">
